@@ -1,0 +1,100 @@
+body {
+    background-color: black;
+    margin: 0;
+    --bg-color-one: rgb(139, 11, 11);
+    --bg-color-two: rgb(67, 21, 121);
+    --bg-color-three: rgb(4, 76, 117);
+    --bg-color-four: rgb(173, 154, 41);
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+.card-slip {
+    position: relative;
+    width: 18%;
+    height: 65%;
+    max-width: 174px;
+    max-height: 424px;
+    margin: auto;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card {
+    position: absolute;
+    height: calc(100% - 24px);
+    width: calc(100% - 24px);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.card.front {
+    border: 12px solid black;
+}
+
+.card.back {
+    background-color: black;
+    outline: 8px solid black;
+    transform: rotateY(180deg);
+}
+
+/* ANIMATIONS */
+
+.card-slip:hover {
+    transform: rotateY(180deg);
+}
+
+.card-slip.one:hover body {
+    background-color: var(--bg-color-one);
+    -webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+}
+
+/* Card specific coloring */
+
+/* CARD ONE */
+.card.one.front {
+    background-color: var(--bg-color-one);
+    outline: 8px solid var(--bg-color-one);
+}
+.card.one.back {
+    border: 12px solid var(--bg-color-one);
+}
+
+/* CARD TWO */
+.card.two.front {
+    background-color: var(--bg-color-two);
+    outline: 8px solid var(--bg-color-two);
+}
+.card.two.back {
+    border: 12px solid var(--bg-color-two);
+}
+
+/* CARD THREE */
+.card.three.front {
+    background-color: var(--bg-color-three);
+    outline: 8px solid var(--bg-color-three);
+}
+.card.three.back {
+    border: 12px solid var(--bg-color-three);
+}
+
+/* CARD FOUR */
+.card.four.front {
+    background-color: var(--bg-color-four);
+    outline: 8px solid var(--bg-color-four);
+}
+.card.four.back {
+    border: 12px solid var(--bg-color-four);
+}
