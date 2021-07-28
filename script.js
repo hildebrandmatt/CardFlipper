@@ -16,9 +16,16 @@ function flip(event){
         } else {
             element.lastElementChild.style.transform = "rotateY(0deg)";
         }
-        
+
         // Add "flipped" to class names
-        element.classList.add("flipped");
+        if (!element.classList.contains("flipped")) {
+            element.classList.add("flipped");
+            var color = getComputedStyle(element.firstElementChild).backgroundColor;
+            document.body.style.backgroundColor = color;
+        } else {
+            element.classList.remove("flipped");
+            document.body.style.backgroundColor = "#000"
+        }
     }
 }
 
