@@ -26,8 +26,6 @@ body {
     max-width: 174px;
     max-height: 424px;
     margin: auto;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
 }
 
 .card {
@@ -36,6 +34,8 @@ body {
     width: calc(100% - 24px);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
 }
 
 .card.front {
@@ -50,16 +50,20 @@ body {
 
 /* ANIMATIONS */
 
-.card-slip:hover {
+.card-slip:hover .card.front{
     transform: rotateY(180deg);
 }
 
-.card-slip.one:hover body {
+.card-slip:hover .card.back{
+    transform: rotateY(0deg);
+}
+
+/*.card-slip.one:hover body {
     background-color: var(--bg-color-one);
     -webkit-transition: background-color 1000ms linear;
     -ms-transition: background-color 1000ms linear;
     transition: background-color 1000ms linear;
-}
+}*/
 
 /* Card specific coloring */
 
