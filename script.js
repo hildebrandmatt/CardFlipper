@@ -21,14 +21,18 @@ function flip(event){
         if (!element.classList.contains("flipped")) {
             element.classList.add("flipped");
             var color = getComputedStyle(element.firstElementChild).backgroundColor;
-            document.body.style.backgroundColor = color;
         } else {
             element.classList.remove("flipped");
-            document.body.style.backgroundColor = "#000"
+            var color = "#000";
         }
+
+        // Background slide transition
+        bgChange(color);
     }
 }
 
+// Function
+// Check for flipped cards, and unflip them
 function flipCheck(element) {
 
     // Create sibling array
@@ -49,5 +53,25 @@ function flipCheck(element) {
             card.lastElementChild.style.transform = "rotateY(180deg)";
             card.classList.remove("flipped")
         }
+    }
+}
+
+// Function
+// Slide transition for bg colour change
+function bgChange(color) {
+    //var bgSlide = document.createElement('div');
+    //document.body.appendChild(bgSlide);
+    //bgSlide.classList.add("bgslide");
+    var bgSlide = document.getElementById("bgslide");
+    bgSlide.style.backgroundColor = color;
+    bgSlide.style.height = "100vh";
+    //bgSlide.style.transform = "translateY(-80vh)";
+    //document.body.style.backgroundColor = color;
+    setTimeout(bgSet, 500);
+
+    // Function for resetting bg elements
+    function bgSet() {
+        document.body.style.backgroundColor = color;
+        bgSlide.style.height = "0px";
     }
 }
